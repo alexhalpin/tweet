@@ -1,13 +1,8 @@
-import os, sys, argparse
+import os, sys
 import tweepy
 
 
 def main():
-    parser = argparse.ArgumentParser(description="send tweets from the terminal")
-
-    parser.add_argument("tweet", nargs="+", type=str, help="the tweet")
-    args = parser.parse_args()
-
     X_CONSUMER_KEY = os.environ.get("X_CONSUMER_KEY")
     X_CONSUMER_KEY_SECRET = os.environ.get("X_CONSUMER_KEY_SECRET")
     X_ACCESS_TOKEN = os.environ.get("X_ACCESS_TOKEN")
@@ -20,7 +15,8 @@ def main():
         consumer_secret=X_CONSUMER_KEY_SECRET,
     )
 
-    tweet = " ".join(args.tweet)
+    args = sys.argv[1:]
+    tweet = " ".join(args)
 
     try:
         tweet = client.create_tweet(text=tweet)
