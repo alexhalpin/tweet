@@ -16,10 +16,10 @@ oauth1 tokens and secrets obtained via the twitter developer console
 ## usage
 
 ```
-tweet "{TWEET}"
+python tweet.py "{TWEET}"
 ```
 
-or without quotes:
+or with the compiled binary:
 
 ```
 tweet {TWEET}
